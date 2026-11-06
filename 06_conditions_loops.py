@@ -96,9 +96,36 @@ print(factorial(5), count_digits(-12345))
 # ======================= EXERCISES =======================
 # 1. Write even_or_odd(n) that returns "Even" or "Odd".
 
+def even_or_odd(n):
+    if n % 2:
+        return "Even"
+    else:
+        return "Odd"
+
+print("Test", even_or_odd(39))
+
 # 2. Write a grade function: 90+ "A", 80+ "B", 70+ "C", else "F".
 
+def grade_function(gd):
+    if gd >= 90:
+        return "A"
+    elif gd >= 80:
+        return "B"
+    elif gd >= 70:
+        return "C"
+    else:
+        return "F"
+
+print(grade_function(89.99))
+
 # 3. Print the numbers 1 to 20 that can be divided by 3 (use range and %).
+
+def can_be_divided():
+    for i in range(1, 21):
+        if i % 3 == 0:
+            print("Can be divided: ", i)
+
+can_be_divided()
 
 # 4. Print a countdown from 10 to 1 with range and a negative step, then "Go!".
 
