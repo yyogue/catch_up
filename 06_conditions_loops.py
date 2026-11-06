@@ -129,6 +129,14 @@ can_be_divided()
 
 # 4. Print a countdown from 10 to 1 with range and a negative step, then "Go!".
 
+def count_down():
+    for i in range(10, 0, -1):
+        print(i)
+        if i == 1:
+            print("GO!")
+
+count_down()
+
 # 5. Use a while loop to keep doubling a number starting at 1 until it's over 1000.
 #    Print how many doublings it took.
 
