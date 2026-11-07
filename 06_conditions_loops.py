@@ -97,12 +97,13 @@ print(factorial(5), count_digits(-12345))
 # 1. Write even_or_odd(n) that returns "Even" or "Odd".
 
 def even_or_odd(n):
-    if n % 2:
+    if n % 2 == 0:
         return "Even"
     else:
         return "Odd"
 
-print("Test", even_or_odd(39))
+print("Test 39:", even_or_odd(39))
+print("Test 40:", even_or_odd(40))
 
 # 2. Write a grade function: 90+ "A", 80+ "B", 70+ "C", else "F".
 
@@ -132,14 +133,12 @@ can_be_divided()
 def count_down():
     for i in range(10, 0, -1):
         print(i)
-        if i == 1:
-            print("GO!")
+    print("GO!")
 
 count_down()
 
 # 5. Use a while loop to keep doubling a number starting at 1 until it's over 1000.
 #    Print how many doublings it took.
-
 
 def while_function():
     i = 1
@@ -149,23 +148,34 @@ def while_function():
         i *= 2
         count_double += 1
 
-    print(count_double)
+    print(f"{count_double} doublings, ended at {i}")
 
 while_function()
 
 
 # 6. FizzBuzz 1 to 30: multiples of 3 -> "Fizz", of 5 -> "Buzz", both -> "FizzBuzz".
 
+def fizz_buzz():
+    for n in range(1, 31):
+        if n % 3 == 0 and n % 5 == 0:   # check BOTH first, or 15 would stop at "Fizz"
+            print("FizzBuzz")
+        elif n % 3 == 0:
+            print("Fizz")
+        elif n % 5 == 0:
+            print("Buzz")
+        else:
+            print(n)
 
+fizz_buzz()
 
 # 7. Loop over ["a", "b", "c"] with enumerate and print "1. a", "2. b", "3. c".
 
 def loop_over():
     array1 = ["a", "b", "c"]
 
-    for index, value in enumerate(array1):
+    for index, value in enumerate(array1, start=1):
         print(f"{index}. {value}")
-        print("Value only: ", value)
+
 loop_over()
 
 
@@ -183,13 +193,23 @@ def project():
     balance = 1000
     txns = [("deposit", 200), ("withdraw", 1500), ("withdraw", 300), ("bonus", 50), ("deposit", 0)]
 
-    # for i in txns:
-    #    print("Test: ", i)
-    #    for word1, value1 in txns:
-    #       print("Value of word1: ", word1)
-    for i_test, v_test in txns:
-        print("Second: ", i_test)
-        print("Value Second: ", v_test)
-        if i_test == "deposit" and 
+    for kind, amount in txns:
+        if kind == "deposit":
+            if amount <= 0:
+                print(f"Skipped deposit of {amount}")
+                continue
+            balance += amount
+            print(f"Deposited {amount}")
+        elif kind == "withdraw":
+            if amount > balance:
+                print(f"DECLINED withdraw of {amount}")
+            else:
+                balance -= amount
+                print(f"Withdrew {amount}")
+        else:
+            print(f"Unknown type: {kind}")
+        print(f"  balance: {balance}")
+
+    print(f"Final balance: {balance}")
 
 project()
