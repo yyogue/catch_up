@@ -149,3 +149,30 @@ print("Filter: ", six_two)
 # 4. accounts = [ {...}, {...}, {...} ]  (3 accounts)
 #    With sorted + lambda, print the accounts from richest to poorest.
 #    With filter + lambda, print only accounts with less than $100.
+
+
+
+def deposit(acct, amount):
+    acct["balance"] += amount
+    return acct["balance"]
+
+
+def withdraw(acct, amount):
+    if acct["balance"] >= amount:
+        acct["balance"] -= amount
+        return True
+    else:
+        return False
+
+
+def apply_fee(acct, fee=2.5):
+    acct["balance"] -= fee
+    return acct["balance"]
+
+
+acct = {"owner": "Youssouf", "balance": 1000}
+
+print(deposit(acct, 200))
+print(withdraw(acct, 300))
+print(apply_fee(acct))
+print(acct)
