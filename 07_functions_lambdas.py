@@ -84,17 +84,60 @@ print(area(3, 4), area.__doc__)
 # ======================= EXERCISES =======================
 # 1. Write is_adult(age) that returns True or False.
 
+def is_adult(age):
+    if age:
+        return True
+    else:
+        return False
+
+print(is_adult(20))
+
+
 # 2. Write price_with_tax(price, rate=0.0825) that returns the price with tax, rounded to 2 decimals.
 #    Call it with and without a rate.
 
+def price_with_tax(price, rate=0.0825):
+    result = price + rate
+    return round(result, 2) 
+
 # 3. Write min_max_avg(numbers) that returns 3 values. Unpack them and print them.
+
+def min_max_avg(numbers):
+    minimum = min(numbers)
+    maximum = max(numbers)
+    average = sum(numbers) / len(numbers)
+
+    return minimum, maximum, average
+
+print(min_max_avg([70, 85, 90, 65, 100]))
 
 # 4. Write average(*numbers) that works with any amount of numbers.
 
+def average(*numbers):
+    return sum(numbers) / len(numbers)
+
+print(average(10, 20))
+print(average(10, 20, 30))
+print(average(10, 20, 30, 40, 50))
+
 # 5. With a lambda and sorted, sort ["banana", "kiwi", "apple"] by length.
+
+sorting = sorted(["banana", "kiwi", "apple"], key=lambda word: len(word))
+
+print("Sorting:", sorting)
 
 # 6. With map + lambda, turn [1, 2, 3] into ["1", "2", "3"].
 #    With filter + lambda, keep only the words starting with "a" from ["apple", "kiwi", "avocado"].
+
+to_turn = [1, 2, 3]
+words = ["apple", "kiwi", "avocado"]
+
+six_one = list(map(lambda strgs: str(strgs), to_turn))
+six_two = list(filter(lambda x: x.startswith("a"), words))
+
+
+print("String: ", six_one)
+print("Filter: ", six_two)
 
 
 # ======================= PROJECT STEP 7 =======================
