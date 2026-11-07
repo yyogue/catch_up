@@ -140,6 +140,20 @@ count_down()
 # 5. Use a while loop to keep doubling a number starting at 1 until it's over 1000.
 #    Print how many doublings it took.
 
+
+def while_function():
+    i = 1
+    count_double = 0
+
+    while i <= 1000:
+        i *= 2
+        count_double += 1
+
+    print(count_double)
+
+while_function()
+
+
 # 6. FizzBuzz 1 to 30: multiples of 3 -> "Fizz", of 5 -> "Buzz", both -> "FizzBuzz".
 
 # 7. Loop over ["a", "b", "c"] with enumerate and print "1. a", "2. b", "3. c".
