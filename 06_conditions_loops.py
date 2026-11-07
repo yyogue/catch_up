@@ -156,7 +156,17 @@ while_function()
 
 # 6. FizzBuzz 1 to 30: multiples of 3 -> "Fizz", of 5 -> "Buzz", both -> "FizzBuzz".
 
+
+
 # 7. Loop over ["a", "b", "c"] with enumerate and print "1. a", "2. b", "3. c".
+
+def loop_over():
+    array1 = ["a", "b", "c"]
+
+    for index, value in enumerate(array1):
+        print(f"{index}. {value}")
+        print("Value only: ", value)
+loop_over()
 
 
 # ======================= PROJECT STEP 6 =======================
@@ -168,3 +178,18 @@ while_function()
 #   - "withdraw": only if the balance is enough, else print "DECLINED"
 #   - anything else: print "Unknown type"
 # Print the balance after each step, and the final balance at the end.
+
+def project():
+    balance = 1000
+    txns = [("deposit", 200), ("withdraw", 1500), ("withdraw", 300), ("bonus", 50), ("deposit", 0)]
+
+    # for i in txns:
+    #    print("Test: ", i)
+    #    for word1, value1 in txns:
+    #       print("Value of word1: ", word1)
+    for i_test, v_test in txns:
+        print("Second: ", i_test)
+        print("Value Second: ", v_test)
+        if i_test == "deposit" and 
+
+project()
