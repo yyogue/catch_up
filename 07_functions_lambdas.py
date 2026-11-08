@@ -85,20 +85,22 @@ print(area(3, 4), area.__doc__)
 # 1. Write is_adult(age) that returns True or False.
 
 def is_adult(age):
-    if age:
-        return True
-    else:
-        return False
+    return age >= 18
 
 print(is_adult(20))
+print(is_adult(5))
+print(is_adult(18))
 
 
 # 2. Write price_with_tax(price, rate=0.0825) that returns the price with tax, rounded to 2 decimals.
 #    Call it with and without a rate.
 
 def price_with_tax(price, rate=0.0825):
-    result = price + rate
-    return round(result, 2) 
+    result = price * (1 + rate)
+    return round(result, 2)
+
+print(price_with_tax(100))
+print(price_with_tax(100, 0.05))
 
 # 3. Write min_max_avg(numbers) that returns 3 values. Unpack them and print them.
 
@@ -109,7 +111,10 @@ def min_max_avg(numbers):
 
     return minimum, maximum, average
 
-print(min_max_avg([70, 85, 90, 65, 100]))
+low, high, avg = min_max_avg([70, 85, 90, 65, 100])
+print("Min:", low)
+print("Max:", high)
+print("Avg:", avg)
 
 # 4. Write average(*numbers) that works with any amount of numbers.
 
@@ -172,7 +177,23 @@ def apply_fee(acct, fee=2.5):
 
 acct = {"owner": "Youssouf", "balance": 1000}
 
-print(deposit(acct, 200))
-print(withdraw(acct, 300))
-print(apply_fee(acct))
+print(deposit(acct, 200))      # 1200
+print(withdraw(acct, 300))     # True
+print(withdraw(acct, 5000))    # False, test the failing case too
+print(apply_fee(acct))         # 897.5
 print(acct)
+
+# Part 4
+accounts = [
+    {"owner": "Youssouf", "balance": 1000},
+    {"owner": "Amina", "balance": 80},
+    {"owner": "Ben", "balance": 450},
+]
+
+print("Richest to poorest:")
+for a in sorted(accounts, key=lambda a: a["balance"], reverse=True):
+    print(f"  {a['owner']}: ${a['balance']:.2f}")
+
+print("Under $100:")
+for a in filter(lambda a: a["balance"] < 100, accounts):
+    print(f"  {a['owner']}: ${a['balance']:.2f}")
